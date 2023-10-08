@@ -1,6 +1,6 @@
 .main {
   padding: 0 2rem;
-  
+  position: relative;
 }
 
 .cards {
@@ -19,4 +19,12 @@
   margin-top: 50px;
   font-weight: bold;
   font-size: 36px;
+}
+
+.more {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  bottom: 0;
 }

@@ -12,6 +12,8 @@
     color: var(--dark-text);
     box-shadow: var(--box-shadow);
 
+    cursor: var(--hover-cursor);
+
 }
 
 .card:hover {

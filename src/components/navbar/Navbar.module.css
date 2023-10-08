@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     position: fixed;
     z-index: 99999;
     background-color: var(--dark-color);
@@ -10,9 +10,18 @@
     width: 100%;
     height: 50px;
     padding: 1rem;
+
+}
+
+.icon {
+    position: absolute;
+    top: 15px;
+    box-sizing: border-box;
+    cursor: var(--help-cursor);
 }
 
 .input>input {
+
     height: 30px;
     outline: none;
     border: none;
@@ -20,10 +29,24 @@
     border-radius: 12px;
     border: 1px solid rgba(3, 3, 3, 0);
     transition: ease-in-out 300ms;
+    cursor: var(--text-cursor);
 }
 
 .input>input:focus {
 
     border: 1px solid rgb(3, 3, 3);
 
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    background-color: var(--toggle-color);
+    border: none;
+}
+
+.button:hover {
+    cursor: var(--hover-cursor);
+    box-shadow: var(--box-shadow);
+    transform: translateY(2px);
 }

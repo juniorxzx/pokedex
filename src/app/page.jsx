@@ -12,16 +12,22 @@ export default function Home() {
   // criação dos states
   const [pokemons, setPokemons] = useState([])
   const [results, setResults] = useState([]);
+  const [displayCount, setDisplayCount] = useState(20);
 
   useEffect(() => {
     listPokemons()
-  }, [])
+  }, [displayCount])
+
+  // Aumenta o número de cards a serem exibidos em 20
+  const handleLoadMore = async () => {
+    setDisplayCount(displayCount + 20);
+  };
 
 
   // Aqui uma função assincrona que carrega os dados dos pokemons
   const listPokemons = async () => {
     const endpoints = []
-    for (var i = 1; i <= 150; i++) {
+    for (var i = 1; i <= displayCount; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
     }
 
@@ -50,22 +56,23 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Navbar search={searchPokemon} />
+      <Navbar onClick={handleLoadMore} search={searchPokemon}/>
 
       <h1 className={styles.title}>Pokédex</h1>
       <div className={styles.cards}>
-        {/* um map da pesquisa e de todos os pokemons sem ter que ser recarregado tudo novamente. */}
-        {(results.length > 0 ? results : pokemons).map((pokemon, key) => (
-          <div key={key}>
-            <CardPokemon
-              number={pokemon.id}
-              name={pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-              image={pokemon.sprites.front_default}
-              types={pokemon.types}
-              param={pokemon.id}
-            />
-          </div>
-        ))}
+        {(results.length > 0 ? results : pokemons)
+          .slice(0, displayCount)
+          .map((pokemon, key) => (
+            <div key={key}>
+              <CardPokemon
+                number={pokemon.id}
+                name={pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                image={pokemon.sprites.front_default}
+                types={pokemon.types}
+                param={pokemon.id}
+              />
+            </div>
+          ))}
       </div>
 
     </main>

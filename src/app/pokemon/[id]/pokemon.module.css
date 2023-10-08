@@ -38,6 +38,7 @@
 .menu>a:hover {
     transition: ease-in-out 300ms;
     background-color: var(--toggle-color);
+    cursor: var(--hover-cursor);
 }
 
 

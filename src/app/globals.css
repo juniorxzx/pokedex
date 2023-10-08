@@ -5,10 +5,15 @@
   --text-color: #ffffff;
   --dark-text: #141414;
   --bg-color: #9292921a;
-  --toggle-color: #2f830e;
+  --toggle-color: #FF3D00;
   --dark-color: rgb(58, 58, 58);
   --box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
-  ;
+
+
+  --hover-cursor: url('/cursor/ditto-hover.gif'), auto;
+  --text-cursor: url('/cursor/ditto-text.gif'), auto;
+  --normal-cursor: url('/cursor/ditto-normal.gif'), auto;
+  --help-cursor: url('/cursor/ditto-help.gif'), auto;
 }
 
 * {
@@ -22,4 +27,5 @@
 body {
   background-color: var(--bg-color);
   font-family: 'Poppins', sans-serif;
+  cursor: var(--normal-cursor);
 }
